@@ -1,0 +1,53 @@
+ 
+.table-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+ table {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+}
+th, td {
+	border: 1px solid black;
+	padding: 16px;
+  font-size: 22px;
+}
+
+thead th {
+  width: 15%;
+}
+ 
+.awayTeam {
+  color: red;
+}
+.homeTeam {
+  color: green;
+}
+
+@media (max-width: 999px) {
+ .table-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 8px;
+}
+ table {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+}
+th, td {
+	border: 1px solid black;
+	padding: 8px;
+  font-size: 14px;
+}
+
+thead th {
+  width: 15%;
+}
+}
