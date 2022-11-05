@@ -15,7 +15,7 @@ const TodoForm = () => {
     } else {
       setTodo('')
     }
-  }, [currentTodo.id])
+  }, [currentTodo.text])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -27,7 +27,7 @@ const TodoForm = () => {
     setTodo('')
   }
   return (
-    <div>
+    <div style={{ marginBottom: '22px' }}>
       <form onSubmit={handleSubmit} className={`todoForm`}>
         <input
           onChange={(event) => setTodo(event.target.value)}

@@ -5,7 +5,9 @@ import './NavItems.css'
 
 const navItems = [
   { id: 'home', text: 'home', link: '/', auth: true },
-  { id: 'one', text: 'one', link: '/todolist', auth: true },
+  { id: 'todolist', text: 'todos', link: '/todolist', auth: true },
+  { id: 'one', text: 'one', link: '/one', auth: true },
+
   { id: 'login', text: 'Login', link: '/', auth: false },
   { id: 'signup', text: 'Signup', link: '/signup', auth: false },
 ]

@@ -1,48 +1,35 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { CSSTransition } from 'react-transition-group'
 
-import Backdrop from './Backdrop'
+import Button from '../../components/Forms/Button'
 import './Modal.css'
 
-const ModalOverlay = (props) => {
-  const content = (
-    <div className={`modal ${props.className}`} style={props.style}>
-      <header className={`modal__header ${props.headerClass}`}>
-        <h2>{props.header}</h2>
+const modal = (props) =>
+  ReactDOM.createPortal(
+    <div className="modal">
+      <header className="modal__header">
+        <h1>{props.title}</h1>
       </header>
-      <form
-        onSubmit={
-          props.onSubmit ? props.onSubmit : (event) => event.preventDefault()
-        }
-      >
-        <div className={`modal__content ${props.contentClass}`}>
-          {props.children}
-        </div>
-        <footer className={`modal__footer ${props.footerClass}`}>
-          {props.footer}
-        </footer>
-      </form>
-    </div>
+      <div className="modal__content">{props.children}</div>
+      <div className="modal__actions">
+        <Button
+          design={props.noActionText ? 'success' : 'danger'}
+          mode={props.noActionText ? 'raised' : 'flat'}
+          onClick={props.onCancelModal}
+        >
+          {props.noActionText ? props.noActionText : ' Cancel'}
+        </Button>
+        <Button
+          mode="raised"
+          onClick={props.onAcceptModal}
+          disabled={!props.acceptEnabled}
+          loading={props.isLoading}
+        >
+          {props.actionText ? props.actionText : ' Accept'}
+        </Button>
+      </div>
+    </div>,
+    document.getElementById('modal-root'),
   )
-  return ReactDOM.createPortal(content, document.getElementById('modal-hook'))
-}
 
-const Modal = (props) => {
-  return (
-    <React.Fragment>
-      {props.show && <Backdrop onClick={props.onCancel} />}
-      <CSSTransition
-        in={props.show}
-        mountOnEnter
-        unmountOnExit
-        timeout={200}
-        classNames="modal"
-      >
-        <ModalOverlay {...props} />
-      </CSSTransition>
-    </React.Fragment>
-  )
-}
-
-export default Modal
+export default modal

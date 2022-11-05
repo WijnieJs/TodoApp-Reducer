@@ -1,5 +1,5 @@
 import React, { useState, useReducer, useContext } from 'react'
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 import TodosContext from './context/context'
 import todosReducer from './context/reducer'
@@ -9,7 +9,9 @@ import MobileNav from './components/Navigation/MobileNav/MobileNav'
 import MainNav from './components/Navigation/MainNav/MainNav'
 import BackDrop from './components/UI-interfaces/Backdrop'
 import Home from './pages/Home'
-import TodosList from './components/TodoList'
+import PageOne from './pages/PageOne'
+import TodosList from './pages/TodoList'
+
 import TodoForm from './components/TodoForm/TodoForm'
 import './App.css'
 function App() {
@@ -20,7 +22,7 @@ function App() {
   })
   const initialState = useContext(TodosContext)
   const [state, dispatch] = useReducer(todosReducer, initialState)
-  const [auth, setAuth] = useState(true)
+  const [auth] = useState(true)
 
   const mobileNavHandler = (isOpen) => {
     setNavState({ showMobileNav: isOpen, showBackdrop: isOpen })
@@ -68,6 +70,12 @@ function App() {
 
           <Switch>
             <Route path="/" exact render={(props) => <Home {...props} />} />
+            <Route
+              path="/one"
+              exact
+              render={(props) => <PageOne {...props} />}
+            />
+
             <Route
               path="/todolist"
               exact
