@@ -27,7 +27,7 @@ const TodoForm = () => {
     setTodo('')
   }
   return (
-    <div style={{ marginBottom: '22px' }}>
+    <div>
       <form onSubmit={handleSubmit} className={`todoForm`}>
         <input
           onChange={(event) => setTodo(event.target.value)}

@@ -14,11 +14,12 @@ import TodosList from './pages/TodoList'
 
 import TodoForm from './components/TodoForm/TodoForm'
 import './App.css'
+
 function App() {
   const [navState, setNavState] = useState({
     showBackdrop: false,
     showMobileNav: false,
-    error: null,
+    error: false,
   })
   const initialState = useContext(TodosContext)
   const [state, dispatch] = useReducer(todosReducer, initialState)
@@ -61,7 +62,7 @@ function App() {
                 open={navState.showMobileNav}
                 mobile
                 onChooseItem={() => mobileNavHandler(false)}
-                onLogout={logoutHandler}
+                onLogout={() => mobileNavHandler(false)}
                 isAuth={auth}
               />
             }

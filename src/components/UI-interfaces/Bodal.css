@@ -1,0 +1,71 @@
+.bodal {
+  z-index: 103;
+  position: fixed;
+  top: 22vh;
+  left: 10%;
+  width: 80%;
+  background: white;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 8px;
+}
+
+.bodal__header {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  background: #2a006e;
+  color: white;
+}
+
+.bodal__header h2 {
+  margin: 0.5rem;
+}
+
+.bodal__content {
+  padding: 1rem 0.5rem;
+}
+
+.bodal__footer {
+  padding: 1rem 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .bodal {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+}
+
+.bodal-enter {
+  -webkit-transform: translateY(-10rem);
+      -ms-transform: translateY(-10rem);
+          transform: translateY(-10rem);
+  opacity: 0;
+}
+
+.bodal-enter-active {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+  -webkit-transition: all 350ms;
+  -o-transition: all 350ms;
+  transition: all 350ms;
+}
+
+.bodal-exit {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+
+.bodal-exit-active {
+  -webkit-transform: translateY(-10rem);
+      -ms-transform: translateY(-10rem);
+          transform: translateY(-10rem);
+  opacity: 0;
+  -webkit-transition: all 350ms;
+  -o-transition: all 350ms;
+  transition: all 350ms;
+}
